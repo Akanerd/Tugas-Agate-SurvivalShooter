@@ -9,12 +9,16 @@ public class EnemyManager : MonoBehaviour{
     MonoBehaviour factory;
     IFactory Factory { get { return factory as IFactory; } }
 
-    void Start (){
+    void Start ()
+    {
+        //Mengeksekusi fungs Spawn setiap beberapa detik sesui dengan nilai spawnTime
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
 
-    void Spawn (){
+    void Spawn ()
+    {
+        //Jika player telah mati maka tidak membuat enemy baru
         if (playerHealth.currentHealth <= 0f)
         {
             return;

@@ -7,14 +7,18 @@ public class CameraFollow : MonoBehaviour{
     public float smoothing = 5f;
     Vector3 offset;
 
-    private void Start() {
+    private void Start() 
+    {
+        //Mendapatkan offset antara target dan camera
         offset = transform.position - target.position;
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate() 
+    {
+        //Menapatkan posisi untuk camera
         Vector3 targetCamPos = target.position + offset;
 
-        //Smoothing
+        //set posisi camera dengan smoothing
         transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
     }
 }
